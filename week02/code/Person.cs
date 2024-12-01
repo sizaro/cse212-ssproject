@@ -12,5 +12,5 @@ public class Person
     public override string ToString()
     {
         return Turns <= 0 ? $"({Name}:Forever)" : $"({Name}:{Turns})";
-    }
-}
+    } 
+} 
