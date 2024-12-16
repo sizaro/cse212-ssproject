@@ -1,3 +1,4 @@
+
 using System.Collections;
 
 public class BinarySearchTree : IEnumerable<int>
@@ -81,6 +82,12 @@ public class BinarySearchTree : IEnumerable<int>
     private void TraverseBackward(Node? node, List<int> values)
     {
         // TODO Problem 3
+        if (node is not null)
+        {
+            TraverseBackward(node.Right, values); // Traverse the right subtree first
+            values.Add(node.Data);               // Add the current node's data
+            TraverseBackward(node.Left, values); // Traverse the left subtree next
+        }
     }
 
     /// <summary>
@@ -99,8 +106,10 @@ public class BinarySearchTree : IEnumerable<int>
     }
 }
 
-public static class IntArrayExtensionMethods {
-    public static string AsString(this IEnumerable array) {
+public static class IntArrayExtensionMethods
+{
+    public static string AsString(this IEnumerable array)
+    {
         return "<IEnumerable>{" + string.Join(", ", array.Cast<int>()) + "}";
     }
 }
